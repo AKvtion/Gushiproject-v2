@@ -1,53 +1,52 @@
-# project-v2
+# 简介
 
-## Project setup
-```
-yarn install
-```
+本网站是根据在线学习的这种现状,提出解决问题的一个可行性方法：采用spring boot+mybatis技术，实现了管理和浏览古代诗歌和文章的系统，各类信息有序地进行存储，可进入系统主控界面，进行信息管理，信息查询等功能的使用。实现了各种业务系统的数据集成和信息集成，对学习文章各类信息、资源进行协同集中管理。
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### 后端地址传送
 
-### Compiles and minifies for production
+[AKvtion/GushiSpringboot (github.com)](https://github.com/AKvtion/GushiSpringboot)
+
+
+
+## 项目
 ```
-yarn build
+npm install
 ```
 
-### Lints and fixes files
+### 项目编译并运行
 ```
-yarn lint
-```
-
-### 接口地址
-地址：[https://www.showdoc.com.cn/jinducasey/8321036098744323]
-密码：jinduVIP
-登录的用户名和密码符合校验规则即可(用户名:admin,密码1qaz!QAZ)
-
-### 资源
-分数地图资源：[http://192.144.199.210:8080/editor/index.html?chart_id=7Ph0yZtNoJ1JhGDl]
-
-### Nginx部署项目
-1、yarn build打包Vue项目
-2、打开nging.conf文件,配置对应的信息
-```
-# nginx.conf
-location / {
-    root   C:\Users\17542\Desktop\project-v2\dist;
-    index  index.html index.htm;
-    try_files $uri $uri/ @router; # 解决页面刷新404问题
-}
-
-location @router {
-    rewrite ^.*$ /index.html last; # Vue项目路由不是真实存在的
-}
-```
-3、检查配置文件是否配置成功
-```cmd
-nginx -t -c D:\nginx-1.16.1\conf\nginx.conf
-start nginx # 运行nginx
+npm serve run
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 项目构建
+```
+npm build
+```
+
+
+
+### 技术
+
+#### 前端
+
+vue
+
+axios
+
+elemene-UI
+
+vue-router
+
+
+
+### 效果图
+
+![img](./assets/wps8.jpg)
+
+![img](./assets/wps9.jpg)
+
+![img](./assets/wps10.jpg)
+
+![img](./assets/wps11.jpg)
+
+![img](./assets/wps12.jpg)
