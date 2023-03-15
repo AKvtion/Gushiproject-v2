@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>I LOVE YOU</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /*//////STYLESHEET FOR BEATING HEART WITH TEXT //////*/
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        html {
+            font-size: 83.3%;
+        }
+
+        body {
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Courier;
+            background-color: #262626;
+        }
+
+        .typing {
+            position: relative;
+            bottom: 35%;
+            color: white;
+        }
+
+        .typing:after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 13px;
+            border-right: 2px solid white;
+            right: -5px;
+            top: 1px;
+            animation: blink 0.5s infinite ease;
+
+        }
+
+        .heart {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: #ff3838;
+            transform: rotate(45deg);
+            animation: beatHeart 1.4s linear infinite
+        }
+
+        .heart:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff3838;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+
+        .heart:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff3838;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+
+        @keyframes beatHeart {
+            0% {
+                transform: rotate(45deg) scale(1);
+            }
+
+            25% {
+                transform: rotate(45deg) scale(1);
+            }
+
+            30% {
+                transform: rotate(45deg) scale(1.4);
+            }
+
+            50% {
+                transform: rotate(45deg) scale(1.2);
+            }
+
+            70% {
+                transform: rotate(45deg) scale(1.4);
+            }
+
+            100% {
+                transform: rotate(45deg) scale(1);
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        /*--- For-phone-only ---*/
+        @media (max-width: 599px) {
+            .typing {
+                bottom: 35%;
+            }
+        }
+
+        /*--- Tablets-Portrait-Up ---*/
+        @media (min-width: 37.5em) {
+            html {
+                font-size: 110%;
+            }
+
+            .typing {
+                bottom: 33%;
+            }
+
+            .typing:after {
+                width: 5px;
+                height: 21px;
+            }
+
+            .heart {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /*--- Tablets-Landscape-Up ---*/
+        @media (min-width: 56.25em) {
+            html {
+                font-size: 125%
+            }
+
+            .typing {
+                bottom: 28%;
+            }
+
+            .typing:after {
+                width: 5px;
+                height: 21px;
+            }
+
+            .heart {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /*--- Desktop-Up ---*/
+        @media (min-width: 75em) {
+            html {
+                font-size: 150%
+            }
+
+            .typing {
+                bottom: 30%;
+            }
+
+            .typing:after {
+                width: 5px;
+                height: 21px;
+            }
+
+            .heart {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /*--- Big-Desktop-Up ---*/
+        @media (min-width: 112.5em) {
+            html {
+                font-size: 133.3%
+            }
+
+            .typing {
+                bottom: 30%;
+            }
+
+            .typing:after {
+                width: 5px;
+                height: 21px;
+            }
+
+            .heart {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+
+    <body>
+        <div class="heart"></div>
+        <div class="typing"></div>
+        <script src="js/script.js"></script>
+    </body>
+    <!-- partial -->
+    <script src="./script.js"></script>
+    <script>
+        /*/////SCRIPT SHEET FOR BEATING HEART WITH TEXT/////*/
+
+        const words = ['我中意你！猪！'];
+        let count = 0;
+        let index = 0;
+        let currentWords = '';
+        let letter = '';
+
+        (function type() {
+            if (count === words.length) {
+                count = 0;
+
+            }
+            currentWords = words[count];
+            letter = currentWords.slice(0, ++index);
+            document.querySelector('.typing').textContent = letter;
+
+            if (letter.length === currentWords.length) {
+                count++;
+                index = 0;
+            }
+            setTimeout(type, 500);
+        })();
+    </script>
+</body>
+
+</html>
