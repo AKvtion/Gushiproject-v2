@@ -227,7 +227,7 @@ export function studentDel(id) {
 export function dataview() {
     return service({
         method: 'get',
-        url: '/dataview'
+        url: '/gushi/getConuntry'
     })
 }
 

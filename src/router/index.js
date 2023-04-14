@@ -56,6 +56,21 @@ export default new Router({
         },
         {
             path: '/home',
+            name: '数据分析',
+            iconClass: 'fa fa-bar-chart',
+            component: () => import('@/components/Home'),
+            children: [
+                {
+                    path: '/home/countryview',
+                    name: '数据概览',
+                    iconClass: 'fa fa-line-chart',
+                    component: () => import('@/components/dataAnalysis/CountryView')
+                },
+                
+            ]
+        },
+        {
+            path: '/home',
             name: '用户中心',
             iconClass: 'fa fa-bar-chart',
             component: () => import('@/components/Home'),
