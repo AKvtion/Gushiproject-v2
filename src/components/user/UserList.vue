@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-12 17:30:09
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-01-18 10:14:16
+ * @LastEditTime: 2023-04-18 21:58:22
 -->
 <template>
   <div class="gushiList">
@@ -113,7 +113,7 @@
   </div>
 </template>
 <script>
-import { queryAllUser,userOne,userAdd,userEdit,userDel } from "@/api/api.js";
+import { queryAllUser,userOne,userAdd,userEdit,userDel } from "@/api/userApi.js";
 export default {
   data() {
     return {

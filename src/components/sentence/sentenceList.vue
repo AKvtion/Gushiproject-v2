@@ -99,7 +99,7 @@
   </div>
 </template>
 <script>
-import { queryAllSentence,sentenceOne,sentenceAdd,sentenceEdit,sentenceDel } from "@/api/api.js";
+import { queryAllSentence,sentenceOne,sentenceAdd,sentenceEdit,sentenceDel } from "@/api/sentenceApi.js";
 export default {
   data() {
     return {

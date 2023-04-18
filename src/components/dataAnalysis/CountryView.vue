@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-04-12 16:16:48
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-04-18 11:38:54
+ * @LastEditTime: 2023-04-18 21:57:40
 -->
 <template>
     <div class="data-view">
@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-import { dataview,getCountView } from '@/api/api'
+import { dataview,getCountView } from '@/api/dataApi'
 
 export default {
     data() {
@@ -46,34 +46,7 @@ export default {
             throw err
         })
     },
-    /* mounted() {
-        this.draw();
-        let myChart = this.$echarts.init(document.getElementById('main1'))
-        myChart.setOption({
-            legend:{
-                    top:'bottom'
-            },
-            title: {
-                text: '统计每个朝代文章的数量'
-            },
-            series: [{
-                name: '统计每个朝代文章的数量',
-                type: 'pie',
-                radius:[50,250],
-                center:['50%','50%'],
-                roseType:'area',
-                itemStyle:{
-                    borderRadius:8
-                },
-                data: [ 
-                    {value:40,name:"rose1"},
-                {value:11,name:"rose2"},
-                {value:55,name:"rose3"},
-                {value:77,name:"rose4"},
-            ]
-            }]
-        })
-    },*/
+    
     methods: {
         draw(result) {
             console.log("result",result.value);

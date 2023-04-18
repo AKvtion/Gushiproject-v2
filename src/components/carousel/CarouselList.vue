@@ -90,7 +90,8 @@
   </div>
 </template>
 <script>
-import { queryAllCarousel,userOne,CarouselAdd,CarouselEdit,CarouselDel } from "@/api/api.js";
+import { queryAllCarousel,userOne,CarouselAdd,CarouselEdit,CarouselDel } from "@/api/carouselApi.js";
+
 export default {
   data() {
     return {

@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-11 18:51:36
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-03-09 10:32:28
+ * @LastEditTime: 2023-04-18 21:52:04
 -->
 <template>
   <div class="gushiList">
@@ -127,7 +127,7 @@
   </div>
 </template>
 <script>
-import { queryAllPoetry,gushiOne,infoAdd,infoEdit,infoDel } from "@/api/api.js";
+import { queryAllPoetry,gushiOne,infoAdd,infoEdit,infoDel } from "@/api/poetryApi.js";
 export default {
   data() {
     return {
