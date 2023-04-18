@@ -1,11 +1,4 @@
-<!--
- * @Descripttion: 越努力越幸运
- * @version: 
- * @Author: https://github.com/akvtion && ifauchard@163.com
- * @Date: 2023-01-04 14:10:22
- * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-03-11 15:27:00
--->
+
 <template>
     <div class="header">
         <el-header>

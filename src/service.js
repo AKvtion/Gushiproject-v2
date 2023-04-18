@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-04 14:10:22
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-02-10 11:39:10
+ * @LastEditTime: 2023-04-17 17:28:37
  */
 import axios from 'axios'
 import { getToken } from '@/utils/setToken.js'
@@ -12,8 +12,8 @@ import { Message } from 'element-ui'
 
 
 const service = axios.create({
-    //baseURL: '/api', // baseURL会自动加在请求地址上
-    baseURL: 'http://localhost:8081/', // baseURL会自动加在请求地址上
+    baseURL: '/api', // baseURL会自动加在请求地址上
+    //baseURL: 'http://localhost:8081/', // baseURL会自动加在请求地址上
     timeout: 3000
 })
 

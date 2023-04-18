@@ -1,11 +1,4 @@
-<!--
- * @Descripttion: 越努力越幸运
- * @version: 
- * @Author: https://github.com/akvtion && ifauchard@163.com
- * @Date: 2023-01-17 11:16:31
- * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-02-24 19:57:22
--->
+
 <template>
   <div class="gushiList">
     <!-- 查询、重置 -->

@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 越努力越幸运
+ * @version: 
+ * @Author: https://github.com/akvtion && ifauchard@163.com
+ * @Date: 2023-01-04 14:10:23
+ * @LastEditors: https://github.com/akvtion && ifauchard@163.com
+ * @LastEditTime: 2023-04-18 21:44:23
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Home from '../components/Home.vue'
@@ -51,7 +59,6 @@ export default new Router({
                     iconClass: 'fa fa-align-center',
                     component: () => import('@/components/carousel/CarouselList')
                 },
-                
             ]
         },
         {
@@ -61,8 +68,8 @@ export default new Router({
             component: () => import('@/components/Home'),
             children: [
                 {
-                    path: '/home/countryview',
-                    name: '数据概览',
+                    path: '/home/CountryView',
+                    name: '数据概况',
                     iconClass: 'fa fa-line-chart',
                     component: () => import('@/components/dataAnalysis/CountryView')
                 },
@@ -84,20 +91,7 @@ export default new Router({
                 
             ]
         },
-        // {
-        //     path: '/users',
-        //     name: '用户中心',
-        //     iconClass: 'fa fa-user',
-        //     component: () => import('@/components/Home'),
-        //     children: [
-        //         {
-        //             path: '/users/user',
-        //             name: '权限管理',
-        //             iconClass: 'fa fa-user',
-        //             component: () => import('@/components/users/User')
-        //         }
-        //     ]
-        // }
+        
     ],
     mode: 'history'
 })

@@ -2,78 +2,38 @@
  * @Descripttion: 越努力越幸运
  * @version: 
  * @Author: https://github.com/akvtion && ifauchard@163.com
- * @Date: 2023-04-12 16:16:48
+ * @Date: 2023-04-14 16:55:00
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-04-18 11:38:54
+ * @LastEditTime: 2023-04-18 11:35:53
 -->
 <template>
     <div class="data-view">
         <el-card>
             <div id="main1"></div>
         </el-card>
-        <el-card>
-            <div id="main2"></div>
-        </el-card>
         
     </div>
 </template>
 <script>
-import { dataview,getCountView } from '@/api/api'
+import { dataview } from '@/api/api'
 
 export default {
     data() {
         return {}
     },
     created() {
-        // 玫瑰花图表的绘制
+        // 图表的绘制
         dataview().then(res => {
             if(res.data.code === 200) {
                 console.log( res.data.data.series )
                 let result = res.data.data.series
                 this.draw(result)
-            }
-        }).catch(err => {
-            throw err
-        }),
-        // 压力图表的绘制
-        getCountView().then(res => {
-            if(res.data.code === 200) {
-                console.log( res.data.data.series )
-                let resu = res.data.data.series
-                this.draw2(resu)
+
             }
         }).catch(err => {
             throw err
         })
     },
-    /* mounted() {
-        this.draw();
-        let myChart = this.$echarts.init(document.getElementById('main1'))
-        myChart.setOption({
-            legend:{
-                    top:'bottom'
-            },
-            title: {
-                text: '统计每个朝代文章的数量'
-            },
-            series: [{
-                name: '统计每个朝代文章的数量',
-                type: 'pie',
-                radius:[50,250],
-                center:['50%','50%'],
-                roseType:'area',
-                itemStyle:{
-                    borderRadius:8
-                },
-                data: [ 
-                    {value:40,name:"rose1"},
-                {value:11,name:"rose2"},
-                {value:55,name:"rose3"},
-                {value:77,name:"rose4"},
-            ]
-            }]
-        })
-    },*/
     methods: {
         draw(result) {
             console.log("result",result.value);
@@ -108,7 +68,7 @@ export default {
                 {
                 name: '数量',
                 type: 'pie',
-                radius: [70, 140],
+                radius: [20, 140],
                 center: ['50%', '50%'],
                 roseType: 'area',
                 itemStyle: {
@@ -125,35 +85,6 @@ export default {
             }),
             myChart.setOption(option)
         },
-        draw2(resu) {
-            console.log("result",resu.value);
-            let myChart2 = this.$echarts.init(document.getElementById('main2'))
-            let option = {
-                tooltip: {
-                    formatter: '{a} <br/>{b} : {c}%'
-                },
-                series: [
-                    {
-                    name: '古诗数量',
-                    type: 'gauge',
-                    progress: {
-                        show: true
-                    },
-                    detail: {
-                        valueAnimation: true,
-                        formatter: '{value}'
-                    },
-                    data: [
-                        {
-                        value: resu.value,
-                        name: '古诗数量'
-                        }
-                    ]
-                    }
-                ]
-            }
-            myChart2.setOption(option)
-        },
     }
 }
 </script>
@@ -164,7 +95,7 @@ export default {
     justify-content: space-between;
     .el-card {
         width: 50%;
-        #main1,#main2{
+        #main1{
             height: 500px;
         }
     }

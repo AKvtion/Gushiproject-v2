@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-04 14:10:22
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-03-09 11:41:51
+ * @LastEditTime: 2023-04-18 21:29:27
  */
 // 项目中我们大多数时候都会把对应的接口请求封装成api来调用
 import service from '../service.js'
@@ -14,7 +14,7 @@ import qs from 'qs'
 export function login(data) {
     return service({
         method: 'post',
-        url: '/pManager/login2',
+        url: '/pManager/login',
         data
     })
 }
@@ -231,6 +231,12 @@ export function dataview() {
     })
 }
 
+export function getCountView() {
+    return service({
+        method: 'get',
+        url: '/gushi/getContent'
+    })
+}
 // 旅游地图接口
 export function travel() {
     return service({
