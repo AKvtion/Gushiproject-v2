@@ -28,6 +28,12 @@ export default new Router({
             component: () => import('@/components/Login')
         },
         {
+            path: '/register',
+            name: 'Register',
+            hidden: true,
+            component: () => import('@/components/Register')
+        },
+        {
             path: '*',
             name: 'NotFound',
             hidden: true,

@@ -39,3 +39,12 @@ export function CarouselEdit(data) {
         data
     })
 }
+
+// 单个用户查询接口
+export function userOne(params) {
+    return service({
+        method: 'get',
+        url: '/pUser/queryByName',
+        params
+    })
+}

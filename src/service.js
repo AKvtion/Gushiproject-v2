@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-04 14:10:22
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-04-17 17:28:37
+ * @LastEditTime: 2023-04-18 22:07:21
  */
 import axios from 'axios'
 import { getToken } from '@/utils/setToken.js'
@@ -29,9 +29,12 @@ service.interceptors.request.use((config) => {
 // 添加响应拦截器
 service.interceptors.response.use((response) => {
     // 对响应数据做些什么
-    let { status, message } = response.data
-    if(status !== 200) {
-        Message({message: message || 'error', type: 'warning'})
+    let { code, message } = response.data
+    if(code !== 200) {
+        Message({message: message || '错误', type: 'warning'})
+    }
+    if (code == 200) {
+        Message({message: message || '成功', type: 'success'})
     }
     return response
 }, (error) => {
