@@ -4,7 +4,7 @@
  * @Author: https://github.com/akvtion && ifauchard@163.com
  * @Date: 2023-01-04 14:10:23
  * @LastEditors: https://github.com/akvtion && ifauchard@163.com
- * @LastEditTime: 2023-04-18 21:44:23
+ * @LastEditTime: 2023-04-20 15:25:35
  */
 import Vue from 'vue'
 import Router from 'vue-router'
