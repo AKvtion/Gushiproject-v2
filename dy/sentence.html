@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="fauchardleung" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.101.0">
+  <title>古诗文网-经典传承-诗歌大全-名言</title>
+  <link href="favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link href="./css/blog.css" rel="stylesheet">
+
+  <style>
+    .count{
+      width: 150px;
+    }
+    .count2 a {
+      display: inline-block;
+      margin-top: 15px;
+      margin-left: 10px;
+      border: 1px solid #DAD9D1;
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .count a {
+      display: inline-block;
+      margin-top: 15px;
+      margin-left: 10px;
+      border: 1px solid #DAD9D1;
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .swiper {
+      width: 700px;
+      height: 400px;
+    }
+  </style>
+  <!-- 先引入jQuery，再引入bootstrap JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <!-- 引入组件库 -->
+  <script src="./js/vue.js"></script>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script src="./js/axios-0.18.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0-0/axios.min.map"></script>
+
+  <!-- 引入swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"> </script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="text-muted text-reset" href="#">订阅</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="#">古诗文</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="text-muted" href="#" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                viewBox="0 0 24 24" focusable="false">
+                <title>Search</title>
+                <circle cx="10.5" cy="10.5" r="7.5" />
+                <path d="M21 21l-5.2-5.2" />
+              </svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary text-reset" href="#">登录</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2" style="background-color: #7d835f;color: rgb(222, 224, 226);">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted text-reset" href="http://127.0.0.1:8082/">推荐</a>
+          <a class="p-2 text-muted text-reset" href="http://127.0.0.1:8082/shiwen.html">诗文</a>
+          <a class="p-2 text-muted text-reset" href="http://127.0.0.1:8082/sentence.html">名句</a>
+          <a class="p-2 text-muted text-reset" href="http://127.0.0.1:8082/author.html">作者</a>
+          <a class="p-2 text-muted text-reset" href="#">古籍</a>
+          <a class="p-2 text-muted text-reset" href="#">我的</a>
+        </nav>
+      </div>
+      <hr>
+
+    </div>
+
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h2 class="pb-4 mb-4 font-italic border-bottom">
+            诗句大全
+          </h2>
+
+          <div class="blog-post" style="padding: 2em; background-color: #f0efe2;border-radius:3%;">
+            <div v-for="item of dataList">
+              <p v-html="item.content" @click="toDetail(item.id)">内容</p>
+              <h5 class="blockquote-footer" style="text-align: center;">
+                <cite title="Source Title" v-html="item.author">作者</cite>
+                <cite v-html="item.title">标题</cite>
+              </h5>
+            </div>
+            <br>
+            <hr>
+          </div><!-- /.blog-post -->
+          <hr>
+
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled">Newer</a>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-4 mb-3 rounded" style="background-color: #aab182;">
+            <h4 class="font-italic">关注公众号</h4>
+            <p class="mb-0">将古诗文随身携带</p>
+            <img src="./img/wx.png" class="thumbnail" alt="wx" width="100px" height="100px">
+          </div>
+
+          <div class="p-4 count2" style="background-color: #f0efe2;padding: 1em;border-radius:3%;margin: 20px">
+            <h4 class="font-italic">诗文</h4>
+            <ol class="list-unstyled mb-0">
+              <li><a href="#">唐诗三百</a></li>
+              <li><a href="#">古诗三百</a></li>
+              <li><a href="#">宋词三百</a></li>
+              <li><a href="#">高中古诗</a></li>
+              <li><a href="#">初中古诗</a></li>
+              <li><a href="#">小学古诗</a></li>
+            </ol>
+          </div>
+
+          <div class="p-4" style="background-color: #f0efe2;padding: 1em;border-radius:3%;margin: 20px">
+            <h4 class="font-italic">古籍</h4>
+            <div class="list-unstyled count">
+              <a href="#">论语</a>
+              <a href="#">史记</a>
+              <a href="#">周易</a>
+              <a href="#">大学</a>
+              <a href="#">礼记</a>
+              <a href="#">庄子</a>
+              <a href="#">老子</a>
+              <a href="#">孟子</a>
+              <a href="#">中庸</a>
+            </div>
+          </div>
+        </aside><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>古诗文网站 built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="#">@梁发灿</a>.</p>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+    </footer>
+
+  </div>
+  </div>
+  <script>
+    window.onload = function () {
+      var vue = new Vue({
+        el: '#app',
+        data: {
+          dataList: [],//当前页要展示的列表数据
+          imgList: [],
+
+        },
+
+        mounted: function () {
+          //调用查询全部数据的操作
+          axios.get("http://localhost:8081/sentence/query").then((res) => {
+            console.log(res.data.data);
+            this.dataList = res.data.data;
+          }),
+            axios.get("http://localhost:8081/sentence/queryAll").then((res) => {
+              console.log(res.data.data);
+              this.imgList = res.data.data.list;
+              console.log(this.imgList);
+            })
+        },
+
+        methods: {
+          toDetail(id) {
+            console.log(id)
+            window.open("/sentenceDetail.html?id=" + id);
+          }
+        }
+      })
+
+      // swiper
+      var mySwiper = new Swiper('.swiper', {
+        initialSlide: 0,
+        autoplay: {
+          disableOnInteraction: false,  // 用户操作swiper之后，是否禁止autoplay
+          delay: 3000, // 自动切换的时间间隔（单位ms）
+        },
+        loop: true, // 循环模式选项
+
+        // 分页器
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // 前进后退按钮
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // 滚动条
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      })
+    }
+  </script>
+
+</body>
+
+</html>
